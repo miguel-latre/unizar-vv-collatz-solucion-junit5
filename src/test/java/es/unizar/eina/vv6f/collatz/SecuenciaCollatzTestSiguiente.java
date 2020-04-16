@@ -16,7 +16,7 @@ public class SecuenciaCollatzTestSiguiente {
 
     @TestFactory
     Collection<DynamicTest> testsSecuenciasCollatzSiguiente() {
-        List<DynamicTest> tests = new ArrayList<DynamicTest>();
+        List<DynamicTest> tests = new ArrayList<>();
         for (int i = 0; i < EXAMPLE_SEQUENCE.length - 1; i++) {
             final int testNumber = i;
             tests.add(dynamicTest(" assert siguienteCollatz("
