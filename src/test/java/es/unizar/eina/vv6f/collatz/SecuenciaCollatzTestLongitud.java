@@ -33,7 +33,7 @@ public class SecuenciaCollatzTestLongitud {
     }
 
     @TestFactory
-    Collection<DynamicTest> testsSecuenciasCollatzLongitud_secuenciaEjemplo() {
+    Collection<DynamicTest> testsSecuenciasCollatzLongitud_soloSecuenciaEjemplo() {
         List<DynamicTest> tests = new ArrayList<>();
         for (int i = 0; i < SECUENCIA_EJEMPLO.length; i++) {
             final int testNumber = i;
