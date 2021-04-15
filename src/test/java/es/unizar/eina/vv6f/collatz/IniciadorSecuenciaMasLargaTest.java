@@ -11,28 +11,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 public class IniciadorSecuenciaMasLargaTest {
-    private static final int[][] PARAMETERS = {
-            {2, 1},
-            {3, 2},
-            {4, 3},
-            {5, 3},
-            {6, 3},
-            {7, 6},
-            {8, 7},
-            {9, 7},
-            {10, 9}};
-
-    private static final int INPUT_INDEX = 0;
-    private static final int OUTPUT_INDEX = 1;
+    /**
+     * Vector con los resultados esperados para cada valor límite.
+     */
+    private static final int[] ESPERADOS = {
+            /* Límite:  2  --> iniciador más largo: */   1,
+            /* Límite:  3  --> iniciador más largo: */   2,
+            /* Límite:  4  --> iniciador más largo: */   3,
+            /* Límite:  5  --> iniciador más largo: */   3,
+            /* Límite:  6  --> iniciador más largo: */   3,
+            /* Límite:  7  --> iniciador más largo: */   6,
+            /* Límite:  8  --> iniciador más largo: */   7,
+            /* Límite:  9  --> iniciador más largo: */   7,
+            /* Límite: 10  --> iniciador más largo: */   9,
+            /* Límite: 11  --> iniciador más largo: */   9,
+    };
 
     @TestFactory
     Collection<DynamicTest> testsInicidadorSecuenciaMasLarga() {
         List<DynamicTest> tests = new ArrayList<>();
-        for (int i = 0; i < PARAMETERS.length; i++) {
-            final int testNumber = i;
-            tests.add(dynamicTest("longitudCollatz(" + PARAMETERS[testNumber][INPUT_INDEX] + ")",
-                    () -> assertEquals(PARAMETERS[testNumber][OUTPUT_INDEX],
-                            Main.iniciadorSecuenciaMasLarga(PARAMETERS[testNumber][INPUT_INDEX]))
+        for (int i = 0; i < ESPERADOS.length; i++) {
+            final int indice = i;
+            final int limite = i + 2;
+            tests.add(dynamicTest("iniciadorSecuenciaMasLarga("
+                            + limite + ") devuelve " + ESPERADOS[indice],
+                    () -> assertEquals(ESPERADOS[indice],
+                            Main.iniciadorSecuenciaMasLarga(limite))
             ));
         }
         return tests;
