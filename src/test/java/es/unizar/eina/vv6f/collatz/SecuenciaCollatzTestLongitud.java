@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static es.unizar.eina.vv6f.collatz.SecuenciaCollatzTestSiguiente.EXAMPLE_SEQUENCE;
+import static es.unizar.eina.vv6f.collatz.SecuenciaCollatzTest.SECUENCIA_EJEMPLO;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
@@ -35,10 +35,10 @@ public class SecuenciaCollatzTestLongitud {
     @TestFactory
     Collection<DynamicTest> testsSecuenciasCollatzLongitud_secuenciaEjemplo() {
         List<DynamicTest> tests = new ArrayList<>();
-        for (int i = 0; i < EXAMPLE_SEQUENCE.length; i++) {
+        for (int i = 0; i < SECUENCIA_EJEMPLO.length; i++) {
             final int testNumber = i;
-            final int inicio = EXAMPLE_SEQUENCE[i];
-            final int longitud = EXAMPLE_SEQUENCE.length - i;
+            final int inicio = SECUENCIA_EJEMPLO[i];
+            final int longitud = SECUENCIA_EJEMPLO.length - i;
             tests.add(dynamicTest("longitud iniciando en " + inicio
                             + " es de " + longitud + " elementos",
                     () -> assertEquals(longitud,
