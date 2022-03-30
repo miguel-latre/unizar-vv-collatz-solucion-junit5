@@ -33,8 +33,8 @@ public class IniciadorSecuenciaMasLargaTest {
         for (int i = 0; i < ESPERADOS.length; i++) {
             final int indice = i;
             final int limite = i + 2;
-            tests.add(dynamicTest("iniciadorSecuenciaMasLarga("
-                            + limite + ") devuelve " + ESPERADOS[indice],
+            String nombreTest = String.format("iniciadorSecuenciaMasLarga(%d) devuelve %d", limite, ESPERADOS[indice]);
+            tests.add(dynamicTest(nombreTest,
                     () -> assertEquals(ESPERADOS[indice],
                             Main.iniciadorSecuenciaMasLarga(limite))
             ));

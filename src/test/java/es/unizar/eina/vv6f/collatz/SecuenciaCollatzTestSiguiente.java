@@ -18,12 +18,12 @@ public class SecuenciaCollatzTestSiguiente {
     Collection<DynamicTest> testsSecuenciasCollatzSiguiente() {
         List<DynamicTest> tests = new ArrayList<>();
         for (int i = 0; i < SECUENCIA_EJEMPLO.length - 1; i++) {
-            final int testNumber = i;
-            tests.add(dynamicTest(" assert siguienteCollatz("
-                            + SECUENCIA_EJEMPLO[testNumber] + ") es "
-                            + SECUENCIA_EJEMPLO[testNumber + 1],
-                    () -> Assertions.assertEquals(SECUENCIA_EJEMPLO[testNumber + 1],
-                            siguienteCollatz(SECUENCIA_EJEMPLO[testNumber]))));
+            final int numTest = i;
+            String nombreTest = String.format("siguienteCollatz(%d) es %d",
+                    SECUENCIA_EJEMPLO[numTest], SECUENCIA_EJEMPLO[numTest + 1]);
+            tests.add(dynamicTest(nombreTest,
+                    () -> Assertions.assertEquals(SECUENCIA_EJEMPLO[numTest + 1],
+                            siguienteCollatz(SECUENCIA_EJEMPLO[numTest]))));
         }
         return tests;
     }

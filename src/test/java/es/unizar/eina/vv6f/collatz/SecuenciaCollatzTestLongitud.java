@@ -23,11 +23,11 @@ public class SecuenciaCollatzTestLongitud {
     Collection<DynamicTest> testsSecuenciasCollatzLongitud() {
         List<DynamicTest> tests = new ArrayList<>();
         for (int i = 0; i < INPUTS.length; i++) {
-            final int testNumber = i;
-            tests.add(dynamicTest("longitud iniciando en " + INPUTS[i]
-                            + " es de " + OUTPUTS[testNumber] + " elementos",
-                    () -> assertEquals(OUTPUTS[testNumber],
-                            new SecuenciaCollatz(INPUTS[testNumber]).longitud())));
+            String nombreTest = String.format("longitud iniciando en %d es de %d elementos", INPUTS[i], OUTPUTS[i]);
+            final int numTest = i;
+            tests.add(dynamicTest(nombreTest,
+                    () -> assertEquals(OUTPUTS[numTest],
+                            new SecuenciaCollatz(INPUTS[numTest]).longitud())));
         }
         return tests;
     }
@@ -36,11 +36,10 @@ public class SecuenciaCollatzTestLongitud {
     Collection<DynamicTest> testsSecuenciasCollatzLongitud_soloSecuenciaEjemplo() {
         List<DynamicTest> tests = new ArrayList<>();
         for (int i = 0; i < SECUENCIA_EJEMPLO.length; i++) {
-            final int testNumber = i;
             final int inicio = SECUENCIA_EJEMPLO[i];
             final int longitud = SECUENCIA_EJEMPLO.length - i;
-            tests.add(dynamicTest("longitud iniciando en " + inicio
-                            + " es de " + longitud + " elementos",
+            String nombreTest = String.format("longitud iniciando en %d es de %d elementos", inicio, longitud);
+            tests.add(dynamicTest(nombreTest,
                     () -> assertEquals(longitud,
                             new SecuenciaCollatz(inicio).longitud())));
         }
