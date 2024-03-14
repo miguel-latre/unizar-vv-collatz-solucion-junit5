@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 import static es.unizar.eina.vv6f.collatz.SecuenciaCollatz.siguienteCollatz;
 
-@SuppressWarnings("ResultOfMethodCallIgnored")
 public class SecuenciaCollatzTestSiguiente {
 
     @TestFactory
